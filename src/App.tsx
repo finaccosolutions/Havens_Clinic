@@ -64,42 +64,46 @@ function App() {
         )}
       </main>
       
-      <footer className={`${theme === 'dark' ? 'bg-slate-900 text-gray-300' : 'bg-emerald-900 text-white'} py-12`}>
+      <footer className={`${theme === 'dark' ? 'bg-slate-950 text-gray-300' : 'bg-emerald-900 text-white'} py-12`}>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="space-y-4 group">
-              <h3 className={`text-2xl font-semibold mb-6 ${theme === 'dark' ? 'text-blue-400 group-hover:text-blue-300' : 'text-emerald-300 group-hover:text-emerald-200'} transition-colors`}>Havens</h3>
-              <p className={`${theme === 'dark' ? 'text-gray-300 group-hover:text-white' : 'text-emerald-100 group-hover:text-white'} transition-colors`}>Homeopathic & Infertility Clinic</p>
-              <p className={`${theme === 'dark' ? 'text-gray-300 group-hover:text-white' : 'text-emerald-100 group-hover:text-white'} transition-colors`}>Providing natural healing solutions with personalized care.</p>
-              <p className={`${theme === 'dark' ? 'text-blue-400' : 'text-emerald-200'} font-semibold`}>Sunday consultation appointments only</p>
+              <h3 className={`text-2xl font-semibold mb-6 ${theme === 'dark' ? 'text-purple-400 group-hover:text-purple-300' : 'text-emerald-300 group-hover:text-emerald-200'} transition-colors`}>Havens</h3>
+              <p className={`${theme === 'dark' ? 'text-gray-400 group-hover:text-gray-200' : 'text-emerald-100 group-hover:text-white'} transition-colors`}>Homeopathic & Infertility Clinic</p>
+              <p className={`${theme === 'dark' ? 'text-gray-400 group-hover:text-gray-200' : 'text-emerald-100 group-hover:text-white'} transition-colors`}>Providing natural healing solutions with personalized care.</p>
             </div>
             <div className="space-y-4 group">
-              <h3 className="text-2xl font-semibold mb-6 text-emerald-300 group-hover:text-emerald-200 transition-colors">Contact</h3>
+              <h3 className={`text-2xl font-semibold mb-6 ${theme === 'dark' ? 'text-purple-400 group-hover:text-purple-300' : 'text-emerald-300 group-hover:text-emerald-200'} transition-colors`}>Contact</h3>
               <div className="space-y-2">
-                <p className="text-emerald-100 group-hover:text-white transition-colors hover:translate-x-2 transform duration-300">
+                <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-emerald-100'} group-hover:text-white transition-colors hover:translate-x-2 transform duration-300`}>
                   <span className="font-semibold">Phone:</span> +919946007001
                 </p>
-                <p className="text-emerald-100 group-hover:text-white transition-colors hover:translate-x-2 transform duration-300">
+                <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-emerald-100'} group-hover:text-white transition-colors hover:translate-x-2 transform duration-300`}>
                   <span className="font-semibold">Email:</span> www.haven@gmail.com
                 </p>
-                <p className="text-emerald-100 group-hover:text-white transition-colors hover:translate-x-2 transform duration-300">
+                <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-emerald-100'} group-hover:text-white transition-colors hover:translate-x-2 transform duration-300`}>
                   <span className="font-semibold">Address:</span> Pallipuraya, Omanoor
                 </p>
               </div>
             </div>
             <div className="space-y-4 group">
-              <h3 className="text-2xl font-semibold mb-6 text-emerald-300 group-hover:text-emerald-200 transition-colors">Hours</h3>
+              <h3 className={`text-2xl font-semibold mb-6 ${theme === 'dark' ? 'text-purple-400 group-hover:text-purple-300' : 'text-emerald-300 group-hover:text-emerald-200'} transition-colors`}>Hours</h3>
               <div className="space-y-2">
-                <p className="text-emerald-100 group-hover:text-white transition-colors hover:translate-x-2 transform duration-300">Dr. Salahudheen MP: 8:30 AM - 10:30 AM</p>
-                <p className="text-emerald-100 group-hover:text-white transition-colors hover:translate-x-2 transform duration-300">Dr. Bhavya Oralath: 10:30 AM - 6:30 PM</p>
-                <p className="text-emerald-100 group-hover:text-white transition-colors hover:translate-x-2 transform duration-300">Dr. Shahid Ullattil: 6:30 PM - 8:30 PM</p>
+                <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-emerald-100'} group-hover:text-white transition-colors hover:translate-x-2 transform duration-300`}>Dr. Salahudheen MP: 8:30 AM - 10:30 AM</p>
+                <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-emerald-100'} group-hover:text-white transition-colors hover:translate-x-2 transform duration-300`}>Dr. Bhavya Oralath: 10:30 AM - 6:30 PM</p>
+                <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-emerald-100'} group-hover:text-white transition-colors hover:translate-x-2 transform duration-300`}>Dr. Shahid Ullattil: 6:30 PM - 8:30 PM</p>
+                <div className={`mt-4 p-3 ${theme === 'dark' ? 'bg-purple-900/30' : 'bg-emerald-800/50'} rounded-lg border ${theme === 'dark' ? 'border-purple-800' : 'border-emerald-700'} group-hover:scale-105 transform transition-all duration-300`}>
+                  <p className={`text-lg font-semibold ${theme === 'dark' ? 'text-purple-300' : 'text-emerald-300'}`}>
+                    Sunday consultation appointments only
+                  </p>
+                </div>
               </div>
             </div>
           </div>
           
-          <div className="mt-12 pt-8 border-t border-emerald-800">
+          <div className={`mt-12 pt-8 border-t ${theme === 'dark' ? 'border-slate-800' : 'border-emerald-800'}`}>
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-emerald-200 hover:text-emerald-100 transition-colors text-center md:text-left">
+              <p className={`${theme === 'dark' ? 'text-gray-500 hover:text-gray-300' : 'text-emerald-200 hover:text-emerald-100'} transition-colors text-center md:text-left`}>
                 © 2025 Havens Homeopathic & Infertility Clinic. All rights reserved.
               </p>
               <div className="flex gap-6">
@@ -120,9 +124,9 @@ function App() {
                   <a
                     key={index}
                     href={social.href}
-                    className="bg-emerald-800 p-3 rounded-full hover:bg-emerald-700 transition-all duration-300 hover:scale-110 group"
+                    className={`${theme === 'dark' ? 'bg-slate-800 hover:bg-slate-700' : 'bg-emerald-800 hover:bg-emerald-700'} p-3 rounded-full transition-all duration-300 hover:scale-110 group`}
                   >
-                    <svg className="w-5 h-5 text-emerald-300 group-hover:text-emerald-200" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <svg className={`w-5 h-5 ${theme === 'dark' ? 'text-purple-300 group-hover:text-purple-200' : 'text-emerald-300 group-hover:text-emerald-200'}`} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path d={social.icon} />
                     </svg>
                   </a>
@@ -147,7 +151,7 @@ function App() {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-emerald-600 text-white p-4 rounded-full shadow-lg hover:bg-emerald-700 transition-all duration-300 hover:scale-110 z-50"
+          className={`fixed bottom-6 right-6 ${theme === 'dark' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-emerald-600 hover:bg-emerald-700'} text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-50`}
         >
           <ArrowUp size={24} />
         </button>

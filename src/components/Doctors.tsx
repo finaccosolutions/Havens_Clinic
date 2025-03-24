@@ -34,11 +34,11 @@ const Doctors: React.FC<DoctorsProps> = ({ setShowBooking }) => {
   };
 
   return (
-    <section id="doctors" className="py-20 bg-white">
+    <section id="doctors" className="py-20 bg-white dark:bg-slate-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Meet Our Expert Doctors</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-slate-100 mb-6">Meet Our Expert Doctors</h2>
+          <p className="text-lg text-gray-600 dark:text-slate-300 max-w-2xl mx-auto">
             Our team of experienced homeopathic physicians is dedicated to providing personalized care and natural healing solutions.
           </p>
         </div>
@@ -55,17 +55,17 @@ const Doctors: React.FC<DoctorsProps> = ({ setShowBooking }) => {
                   alt={doctor.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-emerald-900 via-emerald-900/50 to-transparent opacity-90"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent opacity-90"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                   <h3 className="text-xl font-semibold mb-2">{doctor.name}</h3>
-                  <p className="text-emerald-200 mb-3">{doctor.specialization}</p>
-                  <div className="flex items-center gap-2 text-emerald-100">
+                  <p className="text-indigo-200 mb-3">{doctor.specialization}</p>
+                  <div className="flex items-center gap-2 text-slate-100">
                     <Clock size={16} />
                     <span>{doctor.timing}</span>
                   </div>
                   <button 
                     onClick={handleBookClick}
-                    className="mt-4 w-full bg-emerald-500 text-white px-6 py-3 rounded-full hover:bg-emerald-400 transition-colors"
+                    className="mt-4 w-full bg-indigo-500 text-white px-6 py-3 rounded-full hover:bg-indigo-400 transition-colors"
                   >
                     Book Appointment
                   </button>
