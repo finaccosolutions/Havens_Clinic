@@ -5,11 +5,13 @@ import Hero from './components/Hero.tsx';
 import About from './components/About.tsx';
 import Doctors from './components/Doctors.tsx';
 import Contact from './components/Contact.tsx';
+import BookConsultation from './components/BookConsultation.tsx';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [theme, setTheme] = useState('light');
+  const [currentPage, setCurrentPage] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +20,12 @@ function App() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Check if the URL has a hash and set the current page accordingly
+    const hash = window.location.hash.slice(1) || 'home';
+    setCurrentPage(hash);
   }, []);
 
   const scrollToTop = () => {
@@ -29,24 +37,37 @@ function App() {
     document.documentElement.classList.toggle('dark');
   };
 
-  return (
-    <div className={`min-h-screen ${theme === 'dark' ? 'dark' : ''}`}>
-      <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} theme={theme} toggleTheme={toggleTheme} />
-      <main>
+  // Determine which page to show based on the URL
+  const renderPage = () => {
+    if (window.location.pathname === '/book') {
+      return <BookConsultation />;
+    }
+
+    return (
+      <>
         <Hero />
         <About />
         <Doctors />
         <Contact />
+      </>
+    );
+  };
+
+  return (
+    <div className={`min-h-screen ${theme === 'dark' ? 'dark' : ''}`}>
+      <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} theme={theme} toggleTheme={toggleTheme} />
+      <main>
+        {renderPage()}
       </main>
       
-      <footer className="bg-emerald-900 text-white py-12">
+      <footer className={`${theme === 'dark' ? 'bg-gray-900 text-gray-300' : 'bg-emerald-900 text-white'} py-12`}>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="space-y-4 group">
-              <h3 className="text-2xl font-semibold mb-6 text-emerald-300 group-hover:text-emerald-200 transition-colors">Havens</h3>
-              <p className="text-emerald-100 group-hover:text-white transition-colors">Homeopathic & Infertility Clinic</p>
-              <p className="text-emerald-100 group-hover:text-white transition-colors">Providing natural healing solutions with personalized care.</p>
-              <p className="text-emerald-200 font-semibold">Sunday consultation appointments only</p>
+              <h3 className={`text-2xl font-semibold mb-6 ${theme === 'dark' ? 'text-emerald-400 group-hover:text-emerald-300' : 'text-emerald-300 group-hover:text-emerald-200'} transition-colors`}>Havens</h3>
+              <p className={`${theme === 'dark' ? 'text-gray-300 group-hover:text-white' : 'text-emerald-100 group-hover:text-white'} transition-colors`}>Homeopathic & Infertility Clinic</p>
+              <p className={`${theme === 'dark' ? 'text-gray-300 group-hover:text-white' : 'text-emerald-100 group-hover:text-white'} transition-colors`}>Providing natural healing solutions with personalized care.</p>
+              <p className={`${theme === 'dark' ? 'text-emerald-400' : 'text-emerald-200'} font-semibold`}>Sunday consultation appointments only</p>
             </div>
             <div className="space-y-4 group">
               <h3 className="text-2xl font-semibold mb-6 text-emerald-300 group-hover:text-emerald-200 transition-colors">Contact</h3>
@@ -131,4 +152,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

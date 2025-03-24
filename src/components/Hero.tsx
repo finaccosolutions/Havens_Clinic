@@ -34,12 +34,18 @@ const Hero = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-8 py-4 rounded-full hover:from-emerald-400 hover:to-emerald-500 transition-all duration-300 hover:scale-105 transform shadow-lg">
+                <a 
+                  href="/book"
+                  className="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-8 py-4 rounded-full hover:from-emerald-400 hover:to-emerald-500 transition-all duration-300 hover:scale-105 transform shadow-lg hover:shadow-emerald-500/50 text-center"
+                >
                   Book Consultation
-                </button>
-                <button className="border-2 border-emerald-300 text-emerald-300 px-8 py-4 rounded-full hover:bg-emerald-300 hover:text-emerald-900 transition-all duration-300 hover:scale-105 transform">
+                </a>
+                <a 
+                  href="/#about"
+                  className="border-2 border-emerald-300 text-emerald-300 px-8 py-4 rounded-full hover:bg-emerald-300 hover:text-emerald-900 transition-all duration-300 hover:scale-105 transform text-center"
+                >
                   Learn More
-                </button>
+                </a>
               </div>
 
               {/* Stats Card */}

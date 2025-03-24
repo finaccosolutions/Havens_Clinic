@@ -18,28 +18,50 @@ const About = () => {
             {
               icon: <Brain className="text-emerald-600 dark:text-emerald-400" size={28} />,
               title: "Holistic Treatment",
-              description: "Homeopathy treats the whole person, considering physical symptoms alongside emotional and mental well-being for complete healing."
+              description: "Homeopathy treats the whole person, considering physical symptoms alongside emotional and mental well-being for complete healing.",
+              gradient: "from-blue-500/20 to-emerald-500/20 dark:from-blue-600/40 dark:to-emerald-600/40",
+              hoverGradient: "group-hover:from-blue-500/30 group-hover:to-emerald-500/30 dark:group-hover:from-blue-600/50 dark:group-hover:to-emerald-600/50",
+              iconBg: "bg-gradient-to-br from-blue-100 to-emerald-100 dark:from-blue-900/50 dark:to-emerald-900/50"
             },
             {
-              icon: <Heart className="text-emerald-600 dark:text-emerald-400" size={28} />,
+              icon: <Heart className="text-rose-600 dark:text-rose-400" size={28} />,
               title: "Natural Healing",
-              description: "Using natural substances, homeopathy stimulates the body's self-healing abilities without harsh chemicals or side effects."
+              description: "Using natural substances, homeopathy stimulates the body's self-healing abilities without harsh chemicals or side effects.",
+              gradient: "from-rose-500/20 to-amber-500/20 dark:from-rose-600/40 dark:to-amber-600/40",
+              hoverGradient: "group-hover:from-rose-500/30 group-hover:to-amber-500/30 dark:group-hover:from-rose-600/50 dark:group-hover:to-amber-600/50",
+              iconBg: "bg-gradient-to-br from-rose-100 to-amber-100 dark:from-rose-900/50 dark:to-amber-900/50"
             },
             {
-              icon: <Shield className="text-emerald-600 dark:text-emerald-400" size={28} />,
+              icon: <Shield className="text-violet-600 dark:text-violet-400" size={28} />,
               title: "Preventive Care",
-              description: "Beyond treating current conditions, homeopathy strengthens the immune system to prevent future health issues."
+              description: "Beyond treating current conditions, homeopathy strengthens the immune system to prevent future health issues.",
+              gradient: "from-violet-500/20 to-fuchsia-500/20 dark:from-violet-600/40 dark:to-fuchsia-600/40",
+              hoverGradient: "group-hover:from-violet-500/30 group-hover:to-fuchsia-500/30 dark:group-hover:from-violet-600/50 dark:group-hover:to-fuchsia-600/50",
+              iconBg: "bg-gradient-to-br from-violet-100 to-fuchsia-100 dark:from-violet-900/50 dark:to-fuchsia-900/50"
             }
           ].map((item, index) => (
             <div 
               key={index}
-              className="bg-white dark:bg-emerald-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:bg-emerald-50 dark:hover:bg-emerald-700"
+              className={`bg-white dark:bg-emerald-800 p-8 rounded-2xl shadow-lg group transition-all duration-500 hover:shadow-xl transform hover:-translate-y-2 overflow-hidden relative`}
             >
-              <div className="bg-emerald-100 dark:bg-emerald-600/30 w-14 h-14 rounded-full flex items-center justify-center mb-6">
-                {item.icon}
+              {/* Animated gradient background */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} ${item.hoverGradient} transition-all duration-500 opacity-50`}></div>
+              
+              {/* Content */}
+              <div className="relative z-10">
+                <div className={`${item.iconBg} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg`}>
+                  {item.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 group-hover:translate-x-2 transition-transform duration-300">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 group-hover:translate-x-2 transition-transform duration-300 delay-75">
+                  {item.description}
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">{item.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
+
+              {/* Decorative elements */}
+              <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-gradient-to-br from-transparent to-white/5 rounded-full transform group-hover:scale-150 group-hover:rotate-45 transition-all duration-700"></div>
             </div>
           ))}
         </div>
