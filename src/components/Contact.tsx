@@ -3,19 +3,19 @@ import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-20 bg-emerald-50 dark:bg-emerald-900">
+    <section id="contact" className="py-16 md:py-20 bg-emerald-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">Get in Touch</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        <div className="text-center mb-12 md:mb-16 animate-fade-in">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 md:mb-6">Get in Touch</h2>
+          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Have questions about our treatments? We're here to help. Reach out to us for appointments or any queries.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="bg-white dark:bg-emerald-800 rounded-2xl shadow-lg p-8 transform hover:scale-[1.02] transition-all duration-300">
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 md:p-8 transform hover:scale-[1.02] transition-all duration-300">
+            <form className="space-y-4 md:space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 {[
                   { id: 'name', label: 'Name', type: 'text', placeholder: 'Your Name' },
                   { id: 'email', label: 'Email', type: 'email', placeholder: 'Your Email' }
@@ -27,7 +27,7 @@ const Contact = () => {
                     <input
                       type={field.type}
                       id={field.id}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-emerald-700 focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-emerald-900/50 dark:text-white transition-all duration-300 hover:border-emerald-400 dark:hover:border-emerald-600"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300 hover:border-emerald-400 dark:hover:border-emerald-500"
                       placeholder={field.placeholder}
                     />
                   </div>
@@ -41,7 +41,7 @@ const Contact = () => {
                 <input
                   type="tel"
                   id="phone"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-emerald-700 focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-emerald-900/50 dark:text-white transition-all duration-300 hover:border-emerald-400 dark:hover:border-emerald-600"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300 hover:border-emerald-400 dark:hover:border-emerald-500"
                   placeholder="Your Phone Number"
                 />
               </div>
@@ -52,7 +52,7 @@ const Contact = () => {
                 </label>
                 <select
                   id="doctor"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-emerald-700 focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-emerald-900/50 dark:text-white transition-all duration-300 hover:border-emerald-400 dark:hover:border-emerald-600"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300 hover:border-emerald-400 dark:hover:border-emerald-500"
                 >
                   <option value="">Select a Doctor</option>
                   <option value="dr-salahudheen">Dr. Salahudheen MP (8:30 AM - 10:30 AM)</option>
@@ -68,12 +68,12 @@ const Contact = () => {
                 <textarea
                   id="message"
                   rows={4}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-emerald-700 focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-emerald-900/50 dark:text-white transition-all duration-300 hover:border-emerald-400 dark:hover:border-emerald-600"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300 hover:border-emerald-400 dark:hover:border-emerald-500"
                   placeholder="How can we help you?"
                 ></textarea>
               </div>
 
-              <button className="w-full bg-emerald-600 text-white px-8 py-4 rounded-lg hover:bg-emerald-500 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 font-medium shadow-lg">
+              <button className="w-full bg-emerald-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg hover:bg-emerald-500 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 font-medium shadow-lg text-sm md:text-base">
                 <Send size={20} />
                 Send Message
               </button>
@@ -81,28 +81,28 @@ const Contact = () => {
           </div>
 
           <div className="lg:pl-12">
-            <div className="bg-emerald-900 rounded-2xl shadow-lg p-8 text-white h-full transform hover:scale-[1.02] transition-all duration-300">
-              <h3 className="text-2xl font-semibold mb-8 text-emerald-300">Contact Information</h3>
+            <div className="bg-gradient-to-br from-emerald-100 to-teal-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-lg p-6 md:p-8 h-full transform hover:scale-[1.02] transition-all duration-300">
+              <h3 className="text-xl md:text-2xl font-semibold mb-6 md:mb-8 text-emerald-800 dark:text-emerald-300">Contact Information</h3>
               
-              <div className="space-y-8">
+              <div className="space-y-6 md:space-y-8">
                 {[
                   {
-                    icon: <Phone className="text-emerald-300" size={24} />,
+                    icon: <Phone className="text-emerald-700 dark:text-emerald-400" size={24} />,
                     title: "Phone",
                     info: ["+1 (555) 123-4567", "+1 (555) 987-6543"]
                   },
                   {
-                    icon: <Mail className="text-emerald-300" size={24} />,
+                    icon: <Mail className="text-emerald-700 dark:text-emerald-400" size={24} />,
                     title: "Email",
                     info: ["info@havens-clinic.com", "appointments@havens-clinic.com"]
                   },
                   {
-                    icon: <MapPin className="text-emerald-300" size={24} />,
+                    icon: <MapPin className="text-emerald-700 dark:text-emerald-400" size={24} />,
                     title: "Location",
                     info: ["123 Healing Street", "City, State 12345"]
                   },
                   {
-                    icon: <Clock className="text-emerald-300" size={24} />,
+                    icon: <Clock className="text-emerald-700 dark:text-emerald-400" size={24} />,
                     title: "Consultation Hours",
                     info: [
                       "Dr. Salahudheen MP: 8:30 AM - 10:30 AM",
@@ -112,21 +112,21 @@ const Contact = () => {
                   }
                 ].map((item, index) => (
                   <div key={index} className="flex items-start gap-4 group">
-                    <div className="bg-emerald-800/50 p-3 rounded-full group-hover:bg-emerald-700/50 transition-colors">
+                    <div className="bg-emerald-200/50 dark:bg-gray-600 p-3 rounded-full group-hover:bg-emerald-300/50 dark:group-hover:bg-gray-500 transition-colors">
                       {item.icon}
                     </div>
                     <div>
-                      <h4 className="font-semibold text-emerald-300 group-hover:text-emerald-200 transition-colors">{item.title}</h4>
+                      <h4 className="font-semibold text-emerald-800 dark:text-emerald-300 group-hover:text-emerald-700 dark:group-hover:text-emerald-200 transition-colors text-base md:text-lg">{item.title}</h4>
                       {item.info.map((line, i) => (
-                        <p key={i} className="text-emerald-100 group-hover:text-white transition-colors">{line}</p>
+                        <p key={i} className="text-sm md:text-base text-emerald-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-white transition-colors">{line}</p>
                       ))}
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-12 pt-8 border-t border-emerald-800">
-                <h4 className="font-semibold text-emerald-300 mb-4">Follow Us</h4>
+              <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-emerald-200 dark:border-gray-600">
+                <h4 className="font-semibold text-emerald-800 dark:text-emerald-300 mb-4 text-base md:text-lg">Follow Us</h4>
                 <div className="flex gap-4">
                   {[
                     {
@@ -145,9 +145,9 @@ const Contact = () => {
                     <a
                       key={index}
                       href={social.href}
-                      className="bg-emerald-800/50 p-3 rounded-full hover:bg-emerald-700/50 transition-all duration-300 hover:scale-110"
+                      className="bg-emerald-200/50 dark:bg-gray-600 p-3 rounded-full hover:bg-emerald-300/50 dark:hover:bg-gray-500 transition-all duration-300 hover:scale-110"
                     >
-                      <svg className="w-5 h-5 text-emerald-300" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <svg className="w-5 h-5 text-emerald-700 dark:text-emerald-300" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path d={social.icon} />
                       </svg>
                     </a>
