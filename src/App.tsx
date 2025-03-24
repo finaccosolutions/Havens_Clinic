@@ -12,6 +12,7 @@ function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [theme, setTheme] = useState('light');
   const [currentPage, setCurrentPage] = useState('home');
+  const [showBooking, setShowBooking] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +24,10 @@ function App() {
   }, []);
 
   useEffect(() => {
+    // Check if we should show the booking page based on URL
+    const path = window.location.pathname;
+    setShowBooking(path === '/book' || path.endsWith('/book/'));
+    
     // Check if the URL has a hash and set the current page accordingly
     const hash = window.location.hash.slice(1) || 'home';
     setCurrentPage(hash);
@@ -37,27 +42,26 @@ function App() {
     document.documentElement.classList.toggle('dark');
   };
 
-  // Determine which page to show based on the URL
-  const renderPage = () => {
-    if (window.location.pathname === '/book') {
-      return <BookConsultation />;
-    }
-
-    return (
-      <>
-        <Hero />
-        <About />
-        <Doctors />
-        <Contact />
-      </>
-    );
-  };
-
   return (
     <div className={`min-h-screen ${theme === 'dark' ? 'dark' : ''}`}>
-      <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} theme={theme} toggleTheme={toggleTheme} />
+      <Navbar 
+        isMenuOpen={isMenuOpen} 
+        setIsMenuOpen={setIsMenuOpen} 
+        theme={theme} 
+        toggleTheme={toggleTheme}
+        setShowBooking={setShowBooking}
+      />
       <main>
-        {renderPage()}
+        {showBooking ? (
+          <BookConsultation />
+        ) : (
+          <>
+            <Hero setShowBooking={setShowBooking} />
+            <About />
+            <Doctors setShowBooking={setShowBooking} />
+            <Contact />
+          </>
+        )}
       </main>
       
       <footer className={`${theme === 'dark' ? 'bg-gray-900 text-gray-300' : 'bg-emerald-900 text-white'} py-12`}>

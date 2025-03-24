@@ -6,14 +6,31 @@ interface NavbarProps {
   setIsMenuOpen: (value: boolean) => void;
   theme: string;
   toggleTheme: () => void;
+  setShowBooking: (value: boolean) => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen, theme, toggleTheme }) => {
+const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen, theme, toggleTheme, setShowBooking }) => {
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    e.preventDefault();
+    if (path === '/book') {
+      setShowBooking(true);
+      window.history.pushState({}, '', path);
+    } else {
+      setShowBooking(false);
+      window.location.href = path;
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav className={`${theme === 'dark' ? 'bg-gray-900' : 'bg-white'} shadow-lg fixed w-full z-50 transition-colors duration-300`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
-          <a href="/" className="flex items-center gap-3 group">
+          <a 
+            href="/" 
+            onClick={(e) => handleNavigation(e, '/')}
+            className="flex items-center gap-3 group"
+          >
             <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 p-3 rounded-full group-hover:from-emerald-400 group-hover:to-emerald-500 transition-all duration-300 shadow-lg group-hover:shadow-emerald-500/50">
               <Stethoscope className="w-8 h-8 text-white group-hover:scale-110 transition-transform" />
             </div>
@@ -38,6 +55,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen, theme, toggl
               <a
                 key={item.href}
                 href={item.href}
+                onClick={(e) => handleNavigation(e, item.href)}
                 className={`relative ${
                   item.highlight 
                     ? `bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-6 py-2 rounded-full hover:shadow-lg hover:shadow-emerald-500/50 hover:scale-105 transform transition-all duration-300`
@@ -80,6 +98,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen, theme, toggl
                 <a
                   key={item.href}
                   href={item.href}
+                  onClick={(e) => handleNavigation(e, item.href)}
                   className={`block px-3 py-2 ${
                     item.highlight
                       ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-lg hover:shadow-lg hover:shadow-emerald-500/50 hover:scale-105 transform'

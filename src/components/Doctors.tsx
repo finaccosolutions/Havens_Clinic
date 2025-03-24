@@ -1,6 +1,10 @@
 import React from 'react';
 import { Clock } from 'lucide-react';
 
+interface DoctorsProps {
+  setShowBooking: (value: boolean) => void;
+}
+
 const doctors = [
   {
     name: 'Dr. Salahudheen MP',
@@ -22,7 +26,13 @@ const doctors = [
   }
 ];
 
-const Doctors = () => {
+const Doctors: React.FC<DoctorsProps> = ({ setShowBooking }) => {
+  const handleBookClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowBooking(true);
+    window.history.pushState({}, '', '/book');
+  };
+
   return (
     <section id="doctors" className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -53,7 +63,10 @@ const Doctors = () => {
                     <Clock size={16} />
                     <span>{doctor.timing}</span>
                   </div>
-                  <button className="mt-4 w-full bg-emerald-500 text-white px-6 py-3 rounded-full hover:bg-emerald-400 transition-colors">
+                  <button 
+                    onClick={handleBookClick}
+                    className="mt-4 w-full bg-emerald-500 text-white px-6 py-3 rounded-full hover:bg-emerald-400 transition-colors"
+                  >
                     Book Appointment
                   </button>
                 </div>

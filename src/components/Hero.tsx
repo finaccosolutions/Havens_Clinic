@@ -1,7 +1,17 @@
 import React from 'react';
 import { Star, Leaf, Droplets, Heart, FlaskConical, Tablets, ShieldPlus } from 'lucide-react';
 
-const Hero = () => {
+interface HeroProps {
+  setShowBooking: (value: boolean) => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ setShowBooking }) => {
+  const handleBookClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowBooking(true);
+    window.history.pushState({}, '', '/book');
+  };
+
   return (
     <section id="home" className="relative">
       {/* Full-width background image with overlay */}
@@ -36,6 +46,7 @@ const Hero = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <a 
                   href="/book"
+                  onClick={handleBookClick}
                   className="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-full hover:from-emerald-400 hover:to-emerald-500 transition-all duration-300 hover:scale-105 transform shadow-lg hover:shadow-emerald-500/50 text-center text-sm md:text-base"
                 >
                   Book Consultation

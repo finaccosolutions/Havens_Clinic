@@ -7,4 +7,6 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  // Add base URL configuration for proper routing in production
+  base: '/',
 });
