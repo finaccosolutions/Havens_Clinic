@@ -64,14 +64,14 @@ function App() {
         )}
       </main>
       
-      <footer className={`${theme === 'dark' ? 'bg-gray-900 text-gray-300' : 'bg-emerald-900 text-white'} py-12`}>
+      <footer className={`${theme === 'dark' ? 'bg-slate-900 text-gray-300' : 'bg-emerald-900 text-white'} py-12`}>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="space-y-4 group">
-              <h3 className={`text-2xl font-semibold mb-6 ${theme === 'dark' ? 'text-emerald-400 group-hover:text-emerald-300' : 'text-emerald-300 group-hover:text-emerald-200'} transition-colors`}>Havens</h3>
+              <h3 className={`text-2xl font-semibold mb-6 ${theme === 'dark' ? 'text-blue-400 group-hover:text-blue-300' : 'text-emerald-300 group-hover:text-emerald-200'} transition-colors`}>Havens</h3>
               <p className={`${theme === 'dark' ? 'text-gray-300 group-hover:text-white' : 'text-emerald-100 group-hover:text-white'} transition-colors`}>Homeopathic & Infertility Clinic</p>
               <p className={`${theme === 'dark' ? 'text-gray-300 group-hover:text-white' : 'text-emerald-100 group-hover:text-white'} transition-colors`}>Providing natural healing solutions with personalized care.</p>
-              <p className={`${theme === 'dark' ? 'text-emerald-400' : 'text-emerald-200'} font-semibold`}>Sunday consultation appointments only</p>
+              <p className={`${theme === 'dark' ? 'text-blue-400' : 'text-emerald-200'} font-semibold`}>Sunday consultation appointments only</p>
             </div>
             <div className="space-y-4 group">
               <h3 className="text-2xl font-semibold mb-6 text-emerald-300 group-hover:text-emerald-200 transition-colors">Contact</h3>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, Leaf, Droplets, Heart, FlaskConical, Tablets, ShieldPlus } from 'lucide-react';
+import { Droplets, Heart, FlaskConical, ShieldPlus } from 'lucide-react';
 
 interface HeroProps {
   setShowBooking: (value: boolean) => void;
@@ -13,14 +13,15 @@ const Hero: React.FC<HeroProps> = ({ setShowBooking }) => {
   };
 
   return (
-    <section id="home" className="relative">
-      {/* Full-width background image with overlay */}
-      <div className="absolute inset-0 z-0 h-[85vh] md:h-[85vh]">
-        <img
-          src="https://images.unsplash.com/photo-1576671081837-49000212a370?auto=format&fit=crop&q=80"
-          alt="Homeopathy Medicine Background"
-          className="w-full h-full object-cover"
-        />
+    <section id="home" className="relative bg-emerald-900 min-h-[85vh]">
+      {/* Preload background image */}
+      <link rel="preload" as="image" href="https://images.unsplash.com/photo-1576671081837-49000212a370?auto=format&fit=crop&q=80" />
+      
+      {/* Background with overlay */}
+      <div 
+        className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1576671081837-49000212a370?auto=format&fit=crop&q=80')] bg-cover bg-center"
+        style={{ willChange: 'transform' }}
+      >
         <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/95 to-emerald-600/90"></div>
       </div>
 
@@ -29,15 +30,15 @@ const Hero: React.FC<HeroProps> = ({ setShowBooking }) => {
         <div className="container mx-auto px-4 py-16 md:py-24 min-h-[85vh] flex items-center">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="text-white space-y-6 md:space-y-8">
-              <div className="inline-block px-4 py-2 bg-emerald-500/20 rounded-full hover:bg-emerald-500/30 transition-colors">
+              <div className="inline-block px-4 py-2 bg-emerald-500/20 backdrop-blur-sm rounded-full hover:bg-emerald-500/30 transition-colors">
                 <span className="text-emerald-200 font-medium">Welcome to Havens</span>
               </div>
               <div>
-                <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6 leading-tight animate-fade-in">
+                <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6 leading-tight">
                   Discover the Power of
                   <span className="text-emerald-300 hover:text-emerald-200 transition-colors"> Natural Healing</span>
                 </h1>
-                <p className="text-base md:text-lg text-emerald-50/90 leading-relaxed animate-slide-up">
+                <p className="text-base md:text-lg text-emerald-50/90 leading-relaxed">
                   At Havens Homeopathic & Infertility Clinic, we believe in the body's natural ability to heal itself. 
                   Our treatments work in harmony with your body's healing mechanisms, providing gentle yet effective solutions.
                 </p>
@@ -57,31 +58,6 @@ const Hero: React.FC<HeroProps> = ({ setShowBooking }) => {
                 >
                   Learn More
                 </a>
-              </div>
-
-              {/* Stats Card */}
-              <div className="bg-white/10 backdrop-blur-lg p-4 md:p-6 rounded-2xl border border-emerald-500/20 hover:bg-white/15 transition-all duration-300">
-                <div className="grid grid-cols-2 gap-4 md:gap-6">
-                  {[
-                    { value: "15k+", label: "Happy Patients" },
-                    { value: "25+", label: "Years Experience" },
-                    { value: "98%", label: "Success Rate" },
-                    { value: "4.9", label: "Rating", stars: true }
-                  ].map((stat, index) => (
-                    <div key={index} className="text-center group">
-                      <h3 className="text-2xl md:text-3xl font-bold text-emerald-300 group-hover:text-emerald-200 transition-colors mb-2">{stat.value}</h3>
-                      {stat.stars ? (
-                        <div className="flex justify-center">
-                          {[1, 2, 3, 4, 5].map((star) => (
-                            <Star key={star} size={14} className="fill-emerald-300 text-emerald-300 group-hover:fill-emerald-200 group-hover:text-emerald-200 transition-colors" />
-                          ))}
-                        </div>
-                      ) : (
-                        <p className="text-sm md:text-base text-emerald-100 group-hover:text-emerald-50 transition-colors">{stat.label}</p>
-                      )}
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
 
@@ -112,7 +88,7 @@ const Hero: React.FC<HeroProps> = ({ setShowBooking }) => {
                       description: "Builds natural immunity and resilience"
                     }
                   ].map((item, index) => (
-                    <div key={index} className="flex items-start gap-4 group hover:bg-emerald-500/20 p-4 rounded-xl transition-all duration-300">
+                    <div key={index} className="flex items-start gap-4 group hover:bg-emerald-500/20 p-4 rounded-xl transition-all duration-300 backdrop-blur-sm">
                       <div className="bg-emerald-500/20 p-3 rounded-full group-hover:bg-emerald-500/30 transition-colors group-hover:scale-110 transform">
                         {item.icon}
                       </div>

@@ -59,8 +59,35 @@ const BookConsultation = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
+      // Prepare WhatsApp message
+      const selectedDoctorInfo = doctors.find(d => d.id === formData.doctor);
+      const message = `*New Appointment Request*%0A%0A` +
+        `*Name:* ${formData.name}%0A` +
+        `*Phone:* ${formData.phone}%0A` +
+        `*Email:* ${formData.email || 'Not provided'}%0A` +
+        `*Doctor:* ${selectedDoctorInfo?.name}%0A` +
+        `*Date:* ${formData.date}%0A` +
+        `*Time:* ${formData.timeSlot}%0A` +
+        `*Notes:* ${formData.notes || 'No additional notes'}`;
+
+      // Send to WhatsApp
+      window.open(`https://wa.me/919946007001?text=${message}`, '_blank');
+
+      // Send email if provided
+      if (formData.email) {
+        const emailSubject = 'New Appointment Request - Havens Clinic';
+        const emailBody = `New appointment request from ${formData.name}.\n\n` +
+          `Details:\n` +
+          `Doctor: ${selectedDoctorInfo?.name}\n` +
+          `Date: ${formData.date}\n` +
+          `Time: ${formData.timeSlot}\n` +
+          `Phone: ${formData.phone}\n` +
+          `Notes: ${formData.notes || 'No additional notes'}`;
+
+        window.location.href = `mailto:www.haven@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      }
+
       setIsSubmitted(true);
-      // Here you would typically send the data to your backend
     }
   };
 
@@ -80,10 +107,10 @@ const BookConsultation = () => {
               <Check className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
             </div>
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              Booking Confirmed!
+              Booking Request Sent!
             </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-8">
-              Your consultation has been booked successfully! We will contact you shortly to confirm your appointment.
+              Your consultation request has been sent via WhatsApp. We will contact you shortly to confirm your appointment.
             </p>
             <a
               href="/"
