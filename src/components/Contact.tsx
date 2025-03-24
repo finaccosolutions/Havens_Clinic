@@ -55,9 +55,9 @@ const Contact = () => {
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300 hover:border-emerald-400 dark:hover:border-emerald-500"
                 >
                   <option value="">Select a Doctor</option>
-                  <option value="dr-salahudheen">Dr. Salahudheen MP (8:30 AM - 10:30 AM)</option>
-                  <option value="dr-bhavya">Dr. Bhavya Oralath (10:30 AM - 6:30 PM)</option>
-                  <option value="dr-shahid">Dr. Shahid Ullattil (6:30 PM - 8:30 PM)</option>
+                  <option value="dr-salahudheen">Dr. Salahudheen MP</option>
+                  <option value="dr-bhavya">Dr. Bhavya Oralath</option>
+                  <option value="dr-shahid">Dr. Shahid Ullattil</option>
                 </select>
               </div>
 
@@ -89,17 +89,17 @@ const Contact = () => {
                   {
                     icon: <Phone className="text-emerald-700 dark:text-emerald-400" size={24} />,
                     title: "Phone",
-                    info: ["+1 (555) 123-4567", "+1 (555) 987-6543"]
+                    info: ["+91 9946007001"]
                   },
                   {
                     icon: <Mail className="text-emerald-700 dark:text-emerald-400" size={24} />,
                     title: "Email",
-                    info: ["info@havens-clinic.com", "appointments@havens-clinic.com"]
+                    info: ["www.haven@gmail.com"]
                   },
                   {
                     icon: <MapPin className="text-emerald-700 dark:text-emerald-400" size={24} />,
                     title: "Location",
-                    info: ["123 Healing Street", "City, State 12345"]
+                    info: ["Pallipuraya, Omanoor"]
                   },
                   {
                     icon: <Clock className="text-emerald-700 dark:text-emerald-400" size={24} />,
