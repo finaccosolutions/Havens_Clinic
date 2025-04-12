@@ -14,12 +14,9 @@ const Hero: React.FC<HeroProps> = ({ setShowBooking }) => {
 
   return (
     <section id="home" className="relative bg-emerald-900 min-h-[85vh]">
-      {/* Preload background image */}
-      <link rel="preload" as="image" href="https://images.unsplash.com/photo-1576671081837-49000212a370?auto=format&fit=crop&q=80" />
-      
       {/* Background with overlay */}
       <div 
-        className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1576671081837-49000212a370?auto=format&fit=crop&q=80')] bg-cover bg-center"
+        className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80')] bg-cover bg-center"
         style={{ willChange: 'transform' }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/95 to-emerald-600/90"></div>
@@ -61,44 +58,42 @@ const Hero: React.FC<HeroProps> = ({ setShowBooking }) => {
               </div>
             </div>
 
-            {/* Why Choose Homeopathy Section */}
-            <div className="lg:ml-auto hidden md:block">
-              <div className="bg-white/10 backdrop-blur-lg p-6 md:p-8 rounded-2xl border border-emerald-500/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-[1.02]">
-                <h2 className="text-xl md:text-2xl font-semibold text-white mb-6 md:mb-8">Why Choose Homeopathy?</h2>
-                <div className="grid gap-4 md:gap-6">
-                  {[
-                    {
-                      icon: <Droplets className="text-emerald-300" size={24} />,
-                      title: "Natural Treatment",
-                      description: "Gentle, natural remedies that work with your body"
-                    },
-                    {
-                      icon: <Heart className="text-emerald-300" size={24} />,
-                      title: "Holistic Approach",
-                      description: "Treats the whole person, not just symptoms"
-                    },
-                    {
-                      icon: <FlaskConical className="text-emerald-300" size={24} />,
-                      title: "No Side Effects",
-                      description: "Safe and gentle healing process"
-                    },
-                    {
-                      icon: <ShieldPlus className="text-emerald-300" size={24} />,
-                      title: "Long-term Health",
-                      description: "Builds natural immunity and resilience"
-                    }
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start gap-4 group hover:bg-emerald-500/20 p-4 rounded-xl transition-all duration-300 backdrop-blur-sm">
-                      <div className="bg-emerald-500/20 p-3 rounded-full group-hover:bg-emerald-500/30 transition-colors group-hover:scale-110 transform">
-                        {item.icon}
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-white group-hover:text-white transition-colors">{item.title}</h3>
-                        <p className="text-sm text-emerald-100 group-hover:text-white transition-colors">{item.description}</p>
-                      </div>
+            {/* Why Choose Homeopathy Cards */}
+            <div className="lg:ml-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  {
+                    icon: <Droplets className="text-emerald-300" size={24} />,
+                    title: "Natural Treatment",
+                    description: "Gentle, natural remedies that work with your body"
+                  },
+                  {
+                    icon: <Heart className="text-emerald-300" size={24} />,
+                    title: "Holistic Approach",
+                    description: "Treats the whole person, not just symptoms"
+                  },
+                  {
+                    icon: <FlaskConical className="text-emerald-300" size={24} />,
+                    title: "No Side Effects",
+                    description: "Safe and gentle healing process"
+                  },
+                  {
+                    icon: <ShieldPlus className="text-emerald-300" size={24} />,
+                    title: "Long-term Health",
+                    description: "Builds natural immunity and resilience"
+                  }
+                ].map((item, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-white/10 backdrop-blur-md rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105 border border-emerald-500/20 group"
+                  >
+                    <div className="bg-emerald-500/20 p-3 rounded-full w-fit mb-4 group-hover:bg-emerald-500/30 transition-colors group-hover:scale-110 transform">
+                      {item.icon}
                     </div>
-                  ))}
-                </div>
+                    <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
+                    <p className="text-sm text-emerald-100">{item.description}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

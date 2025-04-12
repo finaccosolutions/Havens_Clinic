@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUp, MessageCircle } from 'lucide-react';
+import { Menu, X, ArrowUp } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa6';
 import Navbar from './components/Navbar.tsx';
 import Hero from './components/Hero.tsx';
 import About from './components/About.tsx';
@@ -24,11 +25,9 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // Check if we should show the booking page based on URL
     const path = window.location.pathname;
     setShowBooking(path === '/book' || path.endsWith('/book/'));
     
-    // Check if the URL has a hash and set the current page accordingly
     const hash = window.location.hash.slice(1) || 'home';
     setCurrentPage(hash);
   }, []);
@@ -79,10 +78,10 @@ function App() {
                   <span className="font-semibold">Phone:</span> +919946007001
                 </p>
                 <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-emerald-100'} group-hover:text-white transition-colors hover:translate-x-2 transform duration-300`}>
-                  <span className="font-semibold">Email:</span> www.haven@gmail.com
+                  <span className="font-semibold">Email:</span> info@havensclinic.com
                 </p>
                 <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-emerald-100'} group-hover:text-white transition-colors hover:translate-x-2 transform duration-300`}>
-                  <span className="font-semibold">Address:</span> Pallipuraya, Omanoor
+                  <span className="font-semibold">Address:</span> Pallipuraya, Omanoor, Kondotty-673645
                 </p>
               </div>
             </div>
@@ -137,14 +136,15 @@ function App() {
         </div>
       </footer>
 
-      {/* WhatsApp Button */}
+      {/* WhatsApp Button with animation */}
       <a
         href="https://wa.me/919946007001"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-24 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 hover:scale-110 z-50"
+        className="fixed bottom-24 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 hover:scale-110 z-50 animate-bounce"
+        style={{ animation: 'bounce 2s infinite' }}
       >
-        <MessageCircle size={24} />
+        <FaWhatsapp size={24} className="animate-pulse" />
       </a>
 
       {/* Scroll to Top Button */}

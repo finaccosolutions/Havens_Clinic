@@ -94,12 +94,15 @@ const Contact = () => {
                   {
                     icon: <Mail className="text-emerald-700 dark:text-emerald-400" size={24} />,
                     title: "Email",
-                    info: ["www.haven@gmail.com"]
+                    info: ["info@havensclinic.com"]
                   },
                   {
                     icon: <MapPin className="text-emerald-700 dark:text-emerald-400" size={24} />,
                     title: "Location",
-                    info: ["Pallipuraya, Omanoor"]
+                    info: [
+                      "Pallipuraya, Omanoor",
+                      "Kondotty-673645"
+                    ]
                   },
                   {
                     icon: <Clock className="text-emerald-700 dark:text-emerald-400" size={24} />,
@@ -163,3 +166,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
+export default Contact
