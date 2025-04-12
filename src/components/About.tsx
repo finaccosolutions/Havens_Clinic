@@ -18,8 +18,8 @@ const About = () => {
             </span>
           </h2>
           <p className="text-lg md:text-xl text-gray-600 dark:text-slate-300 leading-relaxed">
-            Homeopathy is a natural form of medicine that uses highly diluted substances to trigger the body's natural healing mechanisms.
-            It treats each person as a unique individual, focusing on their specific physical, mental, and emotional symptoms.
+            At Havens Homeopathic & Infertility Clinic, we combine traditional homeopathic wisdom with modern medical understanding
+            to provide comprehensive, natural healing solutions for various health conditions.
           </p>
         </div>
 
@@ -27,24 +27,24 @@ const About = () => {
           {[
             {
               icon: <Brain className="text-emerald-600 dark:text-indigo-400" size={28} />,
-              title: "Holistic Treatment",
-              description: "Homeopathy treats the whole person, considering physical symptoms alongside emotional and mental well-being for complete healing.",
+              title: "Personalized Care",
+              description: "Each treatment plan is uniquely tailored to your specific health needs, considering both physical and emotional well-being.",
               gradient: "from-blue-500/20 to-emerald-500/20 dark:from-indigo-600/40 dark:to-purple-600/40",
               hoverGradient: "group-hover:from-blue-500/30 group-hover:to-emerald-500/30 dark:group-hover:from-indigo-600/50 dark:group-hover:to-purple-600/50",
               iconBg: "bg-gradient-to-br from-blue-100 to-emerald-100 dark:from-indigo-900/50 dark:to-purple-900/50"
             },
             {
               icon: <Heart className="text-rose-600 dark:text-pink-400" size={28} />,
-              title: "Natural Treatment",
-              description: "Using natural substances, homeopathy stimulates the body's self-healing abilities without harsh chemicals or side effects.",
+              title: "Fertility Solutions",
+              description: "Specialized homeopathic treatments for fertility enhancement, supporting natural conception and reproductive health.",
               gradient: "from-rose-500/20 to-amber-500/20 dark:from-pink-600/40 dark:to-purple-600/40",
               hoverGradient: "group-hover:from-rose-500/30 group-hover:to-amber-500/30 dark:group-hover:from-pink-600/50 dark:group-hover:to-purple-600/50",
               iconBg: "bg-gradient-to-br from-rose-100 to-amber-100 dark:from-pink-900/50 dark:to-purple-900/50"
             },
             {
               icon: <Shield className="text-violet-600 dark:text-violet-400" size={28} />,
-              title: "Preventive Care",
-              description: "Beyond treating current conditions, homeopathy strengthens the immune system to prevent future health issues.",
+              title: "Holistic Approach",
+              description: "We treat the root cause of health issues, not just symptoms, promoting long-term wellness and vitality.",
               gradient: "from-violet-500/20 to-fuchsia-500/20 dark:from-violet-600/40 dark:to-indigo-600/40",
               hoverGradient: "group-hover:from-violet-500/30 group-hover:to-fuchsia-500/30 dark:group-hover:from-violet-600/50 dark:group-hover:to-indigo-600/50",
               iconBg: "bg-gradient-to-br from-violet-100 to-fuchsia-100 dark:from-violet-900/50 dark:to-indigo-900/50"
@@ -54,10 +54,8 @@ const About = () => {
               key={index}
               className="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-lg group transition-all duration-500 hover:shadow-xl transform hover:-translate-y-2 overflow-hidden relative"
             >
-              {/* Animated gradient background */}
               <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} ${item.hoverGradient} transition-all duration-500 opacity-50`}></div>
               
-              {/* Content */}
               <div className="relative z-10">
                 <div className={`${item.iconBg} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg`}>
                   {item.icon}
@@ -70,61 +68,9 @@ const About = () => {
                 </p>
               </div>
 
-              {/* Decorative elements */}
               <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-gradient-to-br from-transparent to-white/5 rounded-full transform group-hover:scale-150 group-hover:rotate-45 transition-all duration-700"></div>
             </div>
           ))}
-        </div>
-
-        <div className="mt-20">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl">
-            <div className="grid md:grid-cols-2 items-center">
-              <div className="p-8 md:p-12">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 dark:bg-emerald-900/30 mb-6">
-                  <Zap className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                  <span className="text-sm font-medium text-emerald-800 dark:text-emerald-300">Scientific Approach</span>
-                </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-slate-100 mb-6">The Science of Homeopathy</h3>
-                <div className="space-y-6">
-                  {[
-                    {
-                      icon: <Droplets className="text-emerald-600 dark:text-indigo-400" size={24} />,
-                      title: "Like Cures Like",
-                      description: "Substances that cause symptoms in healthy people can treat similar symptoms in sick people."
-                    },
-                    {
-                      icon: <FlaskConical className="text-emerald-600 dark:text-indigo-400" size={24} />,
-                      title: "Minimum Dose",
-                      description: "Using the smallest possible amount of medication to trigger healing response."
-                    },
-                    {
-                      icon: <Leaf className="text-emerald-600 dark:text-indigo-400" size={24} />,
-                      title: "Natural Substances",
-                      description: "Remedies derived from plants, minerals, and other natural sources."
-                    }
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start gap-4 group">
-                      <div className="bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-900/30 dark:to-teal-900/30 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
-                        {item.icon}
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900 dark:text-slate-100 text-lg mb-2">{item.title}</h4>
-                        <p className="text-gray-600 dark:text-slate-300">{item.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="relative h-full min-h-[400px] bg-emerald-50 dark:bg-slate-900/50 p-8 md:p-0">
-                <img
-                  src="https://images.unsplash.com/photo-1577368211130-4bbd0181ddf0?auto=format&fit=crop&q=80&w=800"
-                  alt="Homeopathic Medicine"
-                  className="w-full h-full object-cover rounded-xl md:rounded-none shadow-lg transition-transform duration-300 hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-emerald-500/20 to-transparent"></div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

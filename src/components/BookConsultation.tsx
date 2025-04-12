@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Calendar, Clock, User, Phone, Mail, MessageSquare, Check, ArrowLeft, MessageCircle } from 'lucide-react';
 
 const doctors = [
@@ -35,6 +35,20 @@ const BookConsultation = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedDoctor, setSelectedDoctor] = useState<typeof doctors[0] | null>(null);
+
+  useEffect(() => {
+    // Get pre-selected doctor from sessionStorage
+    const preSelectedDoctor = sessionStorage.getItem('selectedDoctor');
+    if (preSelectedDoctor) {
+      const doctor = doctors.find(d => d.id === preSelectedDoctor);
+      if (doctor) {
+        setFormData(prev => ({ ...prev, doctor: doctor.id }));
+        setSelectedDoctor(doctor);
+      }
+      // Clear the selection from storage
+      sessionStorage.removeItem('selectedDoctor');
+    }
+  }, []);
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
