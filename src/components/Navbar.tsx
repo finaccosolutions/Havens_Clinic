@@ -31,18 +31,13 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen, theme, toggl
             onClick={(e) => handleNavigation(e, '/')}
             className="flex items-center gap-3 group"
           >
-            <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 p-3 rounded-full group-hover:from-emerald-400 group-hover:to-emerald-500 transition-all duration-300 shadow-lg group-hover:shadow-emerald-500/50 transform group-hover:rotate-12">
-              <Stethoscope className="w-8 h-8 text-white group-hover:scale-110 transition-transform" />
-            </div>
-            <div className="flex flex-col">
-              <h1 className={`text-4xl font-bold ${theme === 'dark' ? 'text-emerald-400' : 'text-emerald-600'} group-hover:text-emerald-500 transition-colors`}>
-                Havens
-              </h1>
-              <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'} group-hover:text-emerald-500 transition-colors`}>
-                Homeopathic & Infertility Clinic
-              </p>
-            </div>
+            <img
+              src="https://havensclinic.com/files/HAVENS%20Logo.png"
+              alt="Havens Clinic Logo"
+              className="h-16 w-auto object-contain transition-transform duration-300 transform group-hover:scale-105"
+            />
           </a>
+
 
           <div className="hidden md:flex items-center space-x-1">
             {[
