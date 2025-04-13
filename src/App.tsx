@@ -81,7 +81,7 @@ function App() {
                   <span className="font-semibold">Email:</span> info@havensclinic.com
                 </p>
                 <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-emerald-100'} group-hover:text-white transition-colors hover:translate-x-2 transform duration-300`}>
-                  <span className="font-semibold">Address:</span> Pallipuraya, Omanoor, Kondotty-673645
+                  <span className="font-semibold">Address:</span> Pallipuraya, Omanoor, Kondotty, Malappuram, Kerala, India-673645
                 </p>
               </div>
             </div>
@@ -136,7 +136,6 @@ function App() {
         </div>
       </footer>
 
-      {/* WhatsApp Button with animation */}
       <a
         href="https://wa.me/919946007001"
         target="_blank"
@@ -147,7 +146,6 @@ function App() {
         <FaWhatsapp size={24} className="animate-pulse" />
       </a>
 
-      {/* Scroll to Top Button */}
       {showScrollTop && (
         <button
           onClick={scrollToTop}

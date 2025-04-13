@@ -37,7 +37,6 @@ const BookConsultation = () => {
   const [selectedDoctor, setSelectedDoctor] = useState<typeof doctors[0] | null>(null);
 
   useEffect(() => {
-    // Get pre-selected doctor from sessionStorage
     const preSelectedDoctor = sessionStorage.getItem('selectedDoctor');
     if (preSelectedDoctor) {
       const doctor = doctors.find(d => d.id === preSelectedDoctor);
@@ -45,7 +44,6 @@ const BookConsultation = () => {
         setFormData(prev => ({ ...prev, doctor: doctor.id }));
         setSelectedDoctor(doctor);
       }
-      // Clear the selection from storage
       sessionStorage.removeItem('selectedDoctor');
     }
   }, []);
@@ -73,7 +71,6 @@ const BookConsultation = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      // Prepare WhatsApp message
       const selectedDoctorInfo = doctors.find(d => d.id === formData.doctor);
       const message = `*New Appointment Request*%0A%0A` +
         `*Name:* ${formData.name}%0A` +
@@ -84,10 +81,8 @@ const BookConsultation = () => {
         `*Time:* ${formData.timeSlot}%0A` +
         `*Notes:* ${formData.notes || 'No additional notes'}`;
 
-      // Send to WhatsApp
       window.open(`https://wa.me/919946007001?text=${message}`, '_blank');
 
-      // Send email if provided
       if (formData.email) {
         const emailSubject = 'New Appointment Request - Havens Clinic';
         const emailBody = `New appointment request from ${formData.name}.\n\n` +
@@ -154,14 +149,13 @@ const BookConsultation = () => {
 
           <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 animate-slide-up">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Personal Information */}
               <div className="space-y-6">
                 <div className="group">
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                     Full Name *
                   </label>
-                  <div className="relative">
-                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                  <div className="relative flex items-center">
+                    <User className="absolute left-3 text-gray-400 pointer-events-none" size={20} />
                     <input
                       type="text"
                       value={formData.name}
@@ -214,7 +208,6 @@ const BookConsultation = () => {
                 </div>
               </div>
 
-              {/* Appointment Details */}
               <div className="space-y-6">
                 <div className="group">
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
@@ -313,7 +306,6 @@ const BookConsultation = () => {
         </div>
       </div>
 
-      {/* WhatsApp Button */}
       <a
         href="https://wa.me/919946007001"
         target="_blank"

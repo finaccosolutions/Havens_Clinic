@@ -9,7 +9,6 @@ const Doctors: React.FC<DoctorsProps> = ({ setShowBooking }) => {
   const handleBooking = (doctorId: string) => {
     if (setShowBooking) {
       setShowBooking(true);
-      // Store selected doctor in sessionStorage for the booking form
       sessionStorage.setItem('selectedDoctor', doctorId);
       window.history.pushState({}, '', '/book');
     }
@@ -37,26 +36,21 @@ const Doctors: React.FC<DoctorsProps> = ({ setShowBooking }) => {
               role: "Senior Homeopathic Physician",
               image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=400",
               timing: "8:30 AM - 10:30 AM",
-              experience: "20+ years experience",
-              gradient: "from-blue-500/20 to-emerald-500/20"
+              experience: "10+ years experience"
             },
             {
               id: "dr-bhavya",
               name: "Dr. Bhavya Oralath",
               role: "Fertility Specialist",
               image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=400",
-              timing: "10:30 AM - 6:30 PM",
-              experience: "15+ years experience",
-              gradient: "from-purple-500/20 to-pink-500/20"
+              timing: "10:30 AM - 6:30 PM"
             },
             {
               id: "dr-shahid",
               name: "Dr. Shahid Ullattil",
               role: "Homeopathic Consultant",
               image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400",
-              timing: "6:30 PM - 8:30 PM",
-              experience: "12+ years experience",
-              gradient: "from-emerald-500/20 to-teal-500/20"
+              timing: "6:30 PM - 8:30 PM"
             }
           ].map((doctor, index) => (
             <div 
@@ -77,15 +71,17 @@ const Doctors: React.FC<DoctorsProps> = ({ setShowBooking }) => {
                 </div>
               </div>
               
-              <div className="p-6 space-y-4">
-                <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
+              <div className="p-6">
+                <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300 mb-4">
                   <Clock className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                   <span>{doctor.timing}</span>
                 </div>
-                <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
-                  <Award className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
-                  <span>{doctor.experience}</span>
-                </div>
+                {doctor.experience && (
+                  <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300 mb-4">
+                    <Award className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                    <span>{doctor.experience}</span>
+                  </div>
+                )}
                 <button
                   onClick={() => handleBooking(doctor.id)}
                   className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-3 px-6 rounded-xl hover:from-emerald-500 hover:to-teal-500 transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-emerald-500/25 flex items-center justify-center gap-2"
