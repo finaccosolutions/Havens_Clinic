@@ -68,7 +68,7 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="space-y-4 group">
               <h3 className={`text-2xl font-semibold mb-6 ${theme === 'dark' ? 'text-purple-400 group-hover:text-purple-300' : 'text-emerald-300 group-hover:text-emerald-200'} transition-colors`}>Havens</h3>
-              <p className={`${theme === 'dark' ? 'text-gray-400 group-hover:text-gray-200' : 'text-emerald-100 group-hover:text-white'} transition-colors`}>Homeopathic & Infertility Clinic</p>
+              <p className={`${theme === 'dark' ? 'text-gray-400 group-hover:text-gray-200' : 'text-emerald-100 group-hover:text-white'} transition-colors`}>Homeopathic & Fertility Clinic</p>
               <p className={`${theme === 'dark' ? 'text-gray-400 group-hover:text-gray-200' : 'text-emerald-100 group-hover:text-white'} transition-colors`}>Providing natural healing solutions with personalized care.</p>
             </div>
             <div className="space-y-4 group">
@@ -93,7 +93,7 @@ function App() {
                 <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-emerald-100'} group-hover:text-white transition-colors hover:translate-x-2 transform duration-300`}>Dr. Shahid Ullattil: 6:30 PM - 8:30 PM</p>
                 <div className={`mt-4 p-3 ${theme === 'dark' ? 'bg-purple-900/30' : 'bg-emerald-800/50'} rounded-lg border ${theme === 'dark' ? 'border-purple-800' : 'border-emerald-700'} group-hover:scale-105 transform transition-all duration-300`}>
                   <p className={`text-lg font-semibold ${theme === 'dark' ? 'text-purple-300' : 'text-emerald-300'}`}>
-                    Sunday consultation appointments only
+                    Sunday Consultation Through Appointment Only
                   </p>
                 </div>
               </div>
@@ -103,7 +103,7 @@ function App() {
           <div className={`mt-12 pt-8 border-t ${theme === 'dark' ? 'border-slate-800' : 'border-emerald-800'}`}>
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className={`${theme === 'dark' ? 'text-gray-500 hover:text-gray-300' : 'text-emerald-200 hover:text-emerald-100'} transition-colors text-center md:text-left`}>
-                © 2025 Havens Homeopathic & Infertility Clinic. All rights reserved.
+                © 2025 Havens Homeopathic & Fertility Clinic. All rights reserved.
               </p>
               <div className="flex gap-6">
                 {[

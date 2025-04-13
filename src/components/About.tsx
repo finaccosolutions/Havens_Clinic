@@ -10,11 +10,10 @@ const About = () => {
             <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
             <span className="text-sm font-medium text-emerald-800 dark:text-emerald-300">Discover Natural Healing</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-6 relative">
-            Understanding 
-            <span className="relative inline-block mx-2">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-6">
+            Understanding
+            <span className="relative mx-2 bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">
               Homeopathy
-              <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full"></div>
             </span>
           </h2>
           <p className="text-lg md:text-xl text-gray-600 dark:text-slate-300 leading-relaxed">

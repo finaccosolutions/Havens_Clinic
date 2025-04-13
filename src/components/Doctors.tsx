@@ -60,23 +60,23 @@ const Doctors: React.FC<DoctorsProps> = ({ setShowBooking }) => {
           ].map((doctor, index) => (
             <div 
               key={index} 
-              className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden group transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2"
+              className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden group transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2 flex flex-col"
             >
-              <div className="relative">
+              <div className="relative h-80">
                 <img 
                   src={doctor.image} 
                   alt={doctor.name} 
-                  className="w-full h-96 object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
 
-              <div className="p-6 space-y-6">
-                <div>
+              <div className="p-6 flex flex-col flex-grow">
+                <div className="mb-6">
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{doctor.name}</h3>
                   <p className="text-lg text-emerald-600 dark:text-emerald-400">{doctor.role}</p>
                 </div>
                 
-                <div className="space-y-4">
+                <div className="space-y-4 mb-6">
                   <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
                     <Clock className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                     <span>{doctor.timing}</span>
@@ -85,19 +85,21 @@ const Doctors: React.FC<DoctorsProps> = ({ setShowBooking }) => {
                     <Award className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                     <span>{doctor.experience}</span>
                   </div>
-                  <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
-                    <GraduationCap className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
-                    <span>{doctor.education}</span>
+                  <div className="flex items-start gap-3 text-gray-600 dark:text-gray-300 min-h-[3rem]">
+                    <GraduationCap className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-1" />
+                    <span className="leading-tight">{doctor.education}</span>
                   </div>
                 </div>
 
-                <button
-                  onClick={() => handleBooking(doctor.id)}
-                  className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-4 rounded-xl hover:from-emerald-500 hover:to-teal-500 transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-emerald-500/25 flex items-center justify-center gap-2 text-lg font-medium"
-                >
-                  <Stethoscope className="w-5 h-5" />
-                  Book Consultation
-                </button>
+                <div className="mt-auto">
+                  <button
+                    onClick={() => handleBooking(doctor.id)}
+                    className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-4 rounded-xl hover:from-emerald-500 hover:to-teal-500 transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-emerald-500/25 flex items-center justify-center gap-2 text-lg font-medium"
+                  >
+                    <Stethoscope className="w-5 h-5" />
+                    Book Consultation
+                  </button>
+                </div>
               </div>
             </div>
           ))}

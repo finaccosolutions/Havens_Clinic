@@ -162,8 +162,8 @@ const Contact = () => {
                     icon: <MapPin className="text-emerald-700 dark:text-emerald-400" size={24} />,
                     title: "Location",
                     info: [
-                      "Pallipuraya, Omanoor",
-                      "Kondotty-673645"
+                      "Pallipuraya, Omanoor, Kondotty,",
+                      "Malappuram, Kerala, India-673645"
                     ]
                   },
                   {
