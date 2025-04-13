@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, Award, Stethoscope } from 'lucide-react';
+import { Clock, Award, Stethoscope, GraduationCap } from 'lucide-react';
 
 interface DoctorsProps {
   setShowBooking?: (value: boolean) => void;
@@ -34,23 +34,28 @@ const Doctors: React.FC<DoctorsProps> = ({ setShowBooking }) => {
               id: "dr-salahudheen",
               name: "Dr. Salahudheen MP",
               role: "Senior Homeopathic Physician",
-              image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=400",
+              image: "https://havensclinic.com/files/Salahudheen.jpg",
               timing: "8:30 AM - 10:30 AM",
-              experience: "10+ years experience"
+              experience: "10+ years experience",
+              education: "Govt. Homoeopathic Medical college , Calicut"
             },
             {
               id: "dr-bhavya",
               name: "Dr. Bhavya Oralath",
-              role: "Fertility Specialist",
-              image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=400",
-              timing: "10:30 AM - 6:30 PM"
+              role: "Homeopathic Consultant",
+              image: "https://havensclinic.com/files/Bhavya.jpeg",
+              timing: "10:30 AM - 6:30 PM",
+              experience: "8+ years experience",
+              education: "Bhagawan buddha homoeopathic medical college and hospital"
             },
             {
               id: "dr-shahid",
               name: "Dr. Shahid Ullattil",
               role: "Homeopathic Consultant",
-              image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400",
-              timing: "6:30 PM - 8:30 PM"
+              image: "https://havensclinic.com/files/Shahid.jpg",
+              timing: "6:30 PM - 8:30 PM",
+              experience: "7+ years experience",
+              education: "Govt. Homoeopathic Medical college , Calicut"
             }
           ].map((doctor, index) => (
             <div 
@@ -58,33 +63,37 @@ const Doctors: React.FC<DoctorsProps> = ({ setShowBooking }) => {
               className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden group transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2"
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/20 to-blue-600/20 mix-blend-overlay"></div>
                 <img 
                   src={doctor.image} 
                   alt={doctor.name} 
-                  className="w-full h-64 object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-96 object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-xl font-bold text-white mb-1">{doctor.name}</h3>
-                  <p className="text-emerald-200">{doctor.role}</p>
-                </div>
               </div>
-              
-              <div className="p-6">
-                <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300 mb-4">
-                  <Clock className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
-                  <span>{doctor.timing}</span>
+
+              <div className="p-6 space-y-6">
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{doctor.name}</h3>
+                  <p className="text-lg text-emerald-600 dark:text-emerald-400">{doctor.role}</p>
                 </div>
-                {doctor.experience && (
-                  <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300 mb-4">
-                    <Award className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
+                    <Clock className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                    <span>{doctor.timing}</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
+                    <Award className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                     <span>{doctor.experience}</span>
                   </div>
-                )}
+                  <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
+                    <GraduationCap className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                    <span>{doctor.education}</span>
+                  </div>
+                </div>
+
                 <button
                   onClick={() => handleBooking(doctor.id)}
-                  className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-3 px-6 rounded-xl hover:from-emerald-500 hover:to-teal-500 transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-emerald-500/25 flex items-center justify-center gap-2"
+                  className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-4 rounded-xl hover:from-emerald-500 hover:to-teal-500 transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-emerald-500/25 flex items-center justify-center gap-2 text-lg font-medium"
                 >
                   <Stethoscope className="w-5 h-5" />
                   Book Consultation

@@ -1,7 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from 'lucide-react';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    doctor: '',
+    message: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Create email content
+    const subject = encodeURIComponent(`New Contact Request from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n` +
+      `Phone: ${formData.phone}\n` +
+      `Preferred Doctor: ${formData.doctor}\n` +
+      `Message: ${formData.message}`
+    );
+
+    // Open default email client
+    window.location.href = `mailto:info@havensclinic.com?subject=${subject}&body=${body}`;
+
+    // Create WhatsApp message
+    const whatsappMessage = encodeURIComponent(
+      `*New Contact Request*\n\n` +
+      `*Name:* ${formData.name}\n` +
+      `*Email:* ${formData.email}\n` +
+      `*Phone:* ${formData.phone}\n` +
+      `*Preferred Doctor:* ${formData.doctor}\n` +
+      `*Message:* ${formData.message}`
+    );
+
+    // Open WhatsApp in new tab
+    window.open(`https://wa.me/919946007001?text=${whatsappMessage}`, '_blank');
+
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      doctor: '',
+      message: ''
+    });
+  };
+
   return (
     <section id="contact" className="py-16 md:py-20 bg-emerald-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
@@ -14,11 +61,11 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 md:p-8 transform hover:scale-[1.02] transition-all duration-300">
-            <form className="space-y-4 md:space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 {[
-                  { id: 'name', label: 'Name', type: 'text', placeholder: 'Your Name' },
-                  { id: 'email', label: 'Email', type: 'email', placeholder: 'Your Email' }
+                  { id: 'name', label: 'Name', type: 'text', placeholder: 'Your Name', required: true },
+                  { id: 'email', label: 'Email', type: 'email', placeholder: 'Your Email', required: true }
                 ].map((field) => (
                   <div key={field.id} className="group">
                     <label htmlFor={field.id} className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
@@ -27,6 +74,9 @@ const Contact = () => {
                     <input
                       type={field.type}
                       id={field.id}
+                      required={field.required}
+                      value={formData[field.id as keyof typeof formData]}
+                      onChange={(e) => setFormData(prev => ({ ...prev, [field.id]: e.target.value }))}
                       className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300 hover:border-emerald-400 dark:hover:border-emerald-500"
                       placeholder={field.placeholder}
                     />
@@ -41,6 +91,9 @@ const Contact = () => {
                 <input
                   type="tel"
                   id="phone"
+                  required
+                  value={formData.phone}
+                  onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300 hover:border-emerald-400 dark:hover:border-emerald-500"
                   placeholder="Your Phone Number"
                 />
@@ -52,12 +105,15 @@ const Contact = () => {
                 </label>
                 <select
                   id="doctor"
+                  required
+                  value={formData.doctor}
+                  onChange={(e) => setFormData(prev => ({ ...prev, doctor: e.target.value }))}
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300 hover:border-emerald-400 dark:hover:border-emerald-500"
                 >
                   <option value="">Select a Doctor</option>
-                  <option value="dr-salahudheen">Dr. Salahudheen MP</option>
-                  <option value="dr-bhavya">Dr. Bhavya Oralath</option>
-                  <option value="dr-shahid">Dr. Shahid Ullattil</option>
+                  <option value="Dr. Salahudheen MP">Dr. Salahudheen MP</option>
+                  <option value="Dr. Bhavya Oralath">Dr. Bhavya Oralath</option>
+                  <option value="Dr. Shahid Ullattil">Dr. Shahid Ullattil</option>
                 </select>
               </div>
 
@@ -67,13 +123,19 @@ const Contact = () => {
                 </label>
                 <textarea
                   id="message"
+                  required
+                  value={formData.message}
+                  onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
                   rows={4}
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300 hover:border-emerald-400 dark:hover:border-emerald-500"
                   placeholder="How can we help you?"
                 ></textarea>
               </div>
 
-              <button className="w-full bg-emerald-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg hover:bg-emerald-500 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 font-medium shadow-lg text-sm md:text-base">
+              <button 
+                type="submit"
+                className="w-full bg-emerald-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg hover:bg-emerald-500 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 font-medium shadow-lg text-sm md:text-base"
+              >
                 <Send size={20} />
                 Send Message
               </button>
