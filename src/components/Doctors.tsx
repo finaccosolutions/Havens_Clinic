@@ -45,7 +45,7 @@ const Doctors: React.FC<DoctorsProps> = ({ setShowBooking }) => {
               role: "Homeopathic Consultant",
               image: "https://havensclinic.com/files/Bhavya.jpeg",
               timing: "10:30 AM - 6:30 PM",
-              experience: "8+ years experience",
+              experience: "IHMA HEAT Certified",
               education: "Bhagawan buddha homoeopathic medical college and hospital"
             },
             {
@@ -54,7 +54,7 @@ const Doctors: React.FC<DoctorsProps> = ({ setShowBooking }) => {
               role: "Homeopathic Consultant",
               image: "https://havensclinic.com/files/Shahid.jpg",
               timing: "6:30 PM - 8:30 PM",
-              experience: "7+ years experience",
+              experience: "IHMA HEAT Certified",
               education: "Govt. Homoeopathic Medical college , Calicut"
             }
           ].map((doctor, index) => (

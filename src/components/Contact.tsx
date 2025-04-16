@@ -151,7 +151,7 @@ const Contact = () => {
                   {
                     icon: <Phone className="text-emerald-700 dark:text-emerald-400" size={24} />,
                     title: "Phone",
-                    info: ["+91 9946007001"]
+                    info: ["+91 9946007001", "0483 2714400"]
                   },
                   {
                     icon: <Mail className="text-emerald-700 dark:text-emerald-400" size={24} />,
