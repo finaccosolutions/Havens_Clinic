@@ -50,7 +50,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-20 bg-emerald-50 dark:bg-gray-900">
+    <section id="contact" className="py-16 md:py-20 bg-emerald-50 dark:bg-gray-900 overflow-x-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16 animate-fade-in">
           <h2 className="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 md:mb-6">Get in Touch</h2>
@@ -60,7 +60,7 @@ const Contact = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 md:p-8 transform hover:scale-[1.02] transition-all duration-300">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 md:p-8 transform hover:scale-[1.02] transition-all duration-300 w-full">
             <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 {[
@@ -142,7 +142,7 @@ const Contact = () => {
             </form>
           </div>
 
-          <div className="lg:pl-12">
+          <div className="lg:pl-6">
             <div className="bg-gradient-to-br from-emerald-100 to-teal-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-lg p-6 md:p-8 h-full transform hover:scale-[1.02] transition-all duration-300">
               <h3 className="text-xl md:text-2xl font-semibold mb-6 md:mb-8 text-emerald-800 dark:text-emerald-300">Contact Information</h3>
               
@@ -177,13 +177,13 @@ const Contact = () => {
                   }
                 ].map((item, index) => (
                   <div key={index} className="flex items-start gap-4 group">
-                    <div className="bg-emerald-200/50 dark:bg-gray-600 p-3 rounded-full group-hover:bg-emerald-300/50 dark:group-hover:bg-gray-500 transition-colors">
+                    <div className="bg-emerald-200/50 dark:bg-gray-600 p-3 rounded-full group-hover:bg-emerald-300/50 dark:group-hover:bg-gray-500 transition-colors flex-shrink-0">
                       {item.icon}
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <h4 className="font-semibold text-emerald-800 dark:text-emerald-300 group-hover:text-emerald-700 dark:group-hover:text-emerald-200 transition-colors text-base md:text-lg">{item.title}</h4>
                       {item.info.map((line, i) => (
-                        <p key={i} className="text-sm md:text-base text-emerald-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-white transition-colors">{line}</p>
+                        <p key={i} className="text-sm md:text-base text-emerald-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-white transition-colors break-words">{line}</p>
                       ))}
                     </div>
                   </div>
