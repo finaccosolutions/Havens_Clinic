@@ -75,7 +75,7 @@ function App() {
               <h3 className={`text-2xl font-semibold mb-6 ${theme === 'dark' ? 'text-purple-400 group-hover:text-purple-300' : 'text-emerald-300 group-hover:text-emerald-200'} transition-colors`}>Contact</h3>
               <div className="space-y-2">
                 <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-emerald-100'} group-hover:text-white transition-colors hover:translate-x-2 transform duration-300`}>
-                  <span className="font-semibold">Phone:</span> +919946007001
+                  <span className="font-semibold">Phone:</span> +918281496707
                 </p>
                 <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-emerald-100'} group-hover:text-white transition-colors hover:translate-x-2 transform duration-300`}>
                   <span className="font-semibold">Email:</span> info@havensclinic.com

@@ -37,6 +37,10 @@ const BookConsultation = () => {
   const [selectedDoctor, setSelectedDoctor] = useState<typeof doctors[0] | null>(null);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  useEffect(() => {
     const preSelectedDoctor = sessionStorage.getItem('selectedDoctor');
     if (preSelectedDoctor) {
       const doctor = doctors.find(d => d.id === preSelectedDoctor);

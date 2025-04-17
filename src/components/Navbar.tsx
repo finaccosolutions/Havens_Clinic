@@ -15,6 +15,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen, theme, toggl
     if (path === '/book') {
       setShowBooking(true);
       window.history.pushState({}, '', path);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       setShowBooking(false);
       window.location.href = path;
@@ -38,7 +39,6 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen, theme, toggl
             />
           </a>
 
-
           <div className="hidden md:flex items-center space-x-1">
             {[
               { href: "/", label: "Home" },
@@ -52,9 +52,9 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen, theme, toggl
                 onClick={(e) => handleNavigation(e, item.href)}
                 className={`relative px-4 py-2 rounded-lg ${
                   theme === 'dark' 
-                    ? 'text-gray-300 hover:text-white hover:bg-gray-800' 
-                    : 'text-gray-600 hover:text-emerald-600 hover:bg-emerald-50'
-                } transition-all duration-300 group overflow-hidden`}
+                    ? 'text-gray-300 hover:text-white' 
+                    : 'text-gray-700 hover:text-emerald-600'
+                } transition-all duration-300 group overflow-hidden font-medium hover:bg-emerald-50 dark:hover:bg-gray-800`}
               >
                 <span className="relative z-10">{item.label}</span>
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
@@ -111,7 +111,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen, theme, toggl
                       ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-lg hover:shadow-lg hover:shadow-emerald-500/50 hover:scale-105 transform'
                       : theme === 'dark' 
                         ? 'text-gray-300 hover:text-white hover:bg-gray-700/50' 
-                        : 'text-gray-600 hover:text-emerald-600 hover:bg-gray-100'
+                        : 'text-gray-700 hover:text-emerald-600 hover:bg-gray-100'
                   } rounded-lg transition-all duration-300`}
                 >
                   {item.label}
