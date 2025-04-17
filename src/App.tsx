@@ -137,7 +137,7 @@ function App() {
       </footer>
 
       <a
-        href="https://wa.me/919946007001"
+        href="https://wa.me/918281496707"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-24 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 hover:scale-110 z-50 animate-bounce"
