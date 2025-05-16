@@ -61,8 +61,7 @@ const Hero: React.FC<HeroProps> = ({ setShowBooking }) => {
 
             {/* Right side - Why Choose Homeopathy */}
             <div className="lg:pl-8 flex justify-end w-full">
-             <div className="bg-[rgba(255,255,255,0.1)] backdrop-blur-md rounded-xl p-6 md:p-8 border border-[rgba(16,185,129,0.2)] w-full lg:max-w-lg transform hover:scale-[1.02] transition-all duration-300">
-
+              <div className="bg-black/15 backdrop-blur-md rounded-xl p-6 md:p-8 border border-white/10 w-full lg:max-w-lg transform hover:scale-[1.02] transition-all duration-300">
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-6 md:mb-8">Why Choose Homeopathy?</h2>
                 <div className="space-y-4">
                   {[
@@ -89,10 +88,10 @@ const Hero: React.FC<HeroProps> = ({ setShowBooking }) => {
                   ].map((item, index) => (
                     <div 
                       key={index} 
-                      className="bg-[rgba(5,150,105,0.2)] backdrop-blur-sm rounded-lg p-4 border border-[rgba(16,185,129,0.1)] hover:bg-[rgba(5,150,105,0.3)] transition-all duration-300 transform hover:scale-[1.02]"
+                      className="bg-black/10 backdrop-blur-sm rounded-lg p-4 border border-white/10 hover:bg-black/15 transition-all duration-300 transform hover:scale-[1.02]"
                     >
                       <div className="flex items-center gap-4">
-                        <div className="bg-emerald-500/20 p-2 md:p-3 rounded-full group-hover:bg-emerald-500/30 transition-colors transform hover:scale-110 flex-shrink-0">
+                        <div className="bg-black/15 p-2 md:p-3 rounded-full group-hover:bg-black/20 transition-colors transform hover:scale-110 flex-shrink-0">
                           {item.icon}
                         </div>
                         <div>
