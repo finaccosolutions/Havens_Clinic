@@ -88,8 +88,10 @@ const Hero: React.FC<HeroProps> = ({ setShowBooking }) => {
                   ].map((item, index) => (
                     <div 
                       key={index} 
-                      className="bg-black/10 backdrop-blur-sm rounded-lg p-4 border border-white/10 hover:bg-black/15 transition-all duration-300 transform hover:scale-[1.02]"
+                      style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)' }} // soft white transparent
+                      className="backdrop-blur-sm rounded-lg p-4 border border-white/10 transition-all duration-300 transform hover:scale-[1.02]"
                     >
+
                       <div className="flex items-center gap-4">
                         <div className="bg-black/15 p-2 md:p-3 rounded-full group-hover:bg-black/20 transition-colors transform hover:scale-110 flex-shrink-0">
                           {item.icon}
